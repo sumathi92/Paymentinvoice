@@ -1,0 +1,103 @@
+
+post:-http://localhost:8081/paymentTerm/save
+
+input:-
+{
+    "code":"30",
+    "description" :"with in 30 days",
+    "days":30
+}
+
+{
+    "code":"15",
+    "description" :"with in 15 days",
+    "days":15
+}
+
+output:-
+{
+    "id": 1,
+    "code": "NET 30",
+    "description": "with in 30 days",
+    "creationDate": "02/01/2021",
+    "days": 30,
+    "reminderBeforeDays": 4
+}
+
+{
+    "id": 2,
+    "code": "NET 15",
+    "description": "with in 15 days",
+    "creationDate": "02/01/2021",
+    "days": 15,
+    "reminderBeforeDays": 2
+}
+
+getAll:- http://localhost:8081/paymentTerm/getAll
+
+[
+{
+"id": 1,
+"code": "NET 30",
+"description": "with in 30 days",
+"creationDate": "02/01/2021",
+"days": 30,
+"reminderBeforeDays": 4
+},
+{
+"id": 2,
+"code": "NET 15",
+"description": "with in 15 days",
+"creationDate": "02/01/2021",
+"days": 15,
+"reminderBeforeDays": 2
+}
+]
+
+byId:- http://localhost:8081/paymentTerm/getById/2
+
+{
+"id": 2,
+"code": "NET 15",
+"description": "with in 15 days",
+"creationDate": "02/01/2021",
+"days": 15,
+"reminderBeforeDays": 2
+}
+
+update :- http://localhost:8081/paymentTerm/update
+
+input  :-
+Actual value
+{
+"id": 2,
+"code": "NET 15",
+"description": "with in 15 days",
+"creationDate": "02/01/2021",
+"days": 15,
+"reminderBeforeDays": 2
+}
+
+changing the reminder and date
+
+{
+"id": 2,
+"code": "NET 15",
+"description": "with in 15 days",
+"creationDate": "03/01/2021",
+"days": 15,
+"reminderBeforeDays": 3
+}
+
+output:-
+
+ {
+"id": 2,
+"code": "NET 15",
+"description": "with in 15 days",
+"creationDate": "03/01/2021",
+"days": 15,
+"reminderBeforeDays": 3
+}
+
+delete :- http://localhost:8081/paymentTerm/delete/1

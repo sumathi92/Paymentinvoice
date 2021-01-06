@@ -1,0 +1,103 @@
+
+post:-http://localhost:8082/invoice/save
+
+input:-
+{
+    "invoiceNumber":"001",
+    "paymentTerm" :"NET 45",
+    "status":"PAID"
+}
+
+{
+    "invoiceNumber":"002",
+    "paymentTerm" :"NET 15",
+    "status":"UNPAID"
+}
+
+output:-
+{
+    "id": 1,
+    "invoiceNumber": "INV-001",
+    "invoiceDate": "02/01/2021",
+    "paymentTerm": "NET 45",
+    "status": "PAID"
+}
+
+{
+    "id": 2,
+    "invoiceNumber": "INV-002",
+    "invoiceDate": "02/01/2021",
+    "paymentTerm": "NET 15",
+    "status": "UNPAID"
+}
+
+getAll:- http://localhost:8082/invoice/getAll
+
+[
+{
+"id": 1,
+"invoiceNumber": "INV-001",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 45",
+"status": "PAID"
+},
+{
+"id": 2,
+"invoiceNumber": "INV-002",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 15",
+"status": "UNPAID"
+}
+]
+
+byId:- http://localhost:8082/invoice/getById/1
+
+{
+"id": 1,
+"invoiceNumber": "INV-001",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 45",
+"status": "PAID"
+}
+
+byInvoiceNumber:http://localhost:8082/invoice/getByInvoiceNumber/INV-001
+
+{
+"id": 1,
+"invoiceNumber": "INV-001",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 45",
+"status": "PAID"
+}
+
+update :- http://localhost:8082/invoice/update
+
+input  :-
+Actual value
+{
+"id": 1,
+"invoiceNumber": "INV-001",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 45",
+"status": "PAID"
+}
+
+changing the status
+{
+"id": 1,
+"invoiceNumber": "INV-001",
+"invoiceDate": "02/01/2021",
+"paymentTerm": "NET 45",
+"status": "UNPAID"
+}
+
+output:-
+{
+    "id": 1,
+    "invoiceNumber": "INV-001",
+    "invoiceDate": "02/01/2021",
+    "paymentTerm": "NET 45",
+    "status": "UNPAID"
+}
+
+delete :- http://localhost:8082/invoice/delete/1
